@@ -1,0 +1,17 @@
+73e9b8979b0b2c62e96acaa489ca9158 *ChangeLog
+8cffdc24bc2ecea802d8f255635a6bf0 *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+e6f2e00bca8caf382de52a337da1535c *NEWS
+5ab8478e1413559b67d0c8920611d814 *R/distributionDefinition.R
+bdcc5a5f676fb9ab0dd1dde99f01d20a *inst/CITATION
+4be9aba627049a34cb982a3071d38529 *inst/doc/mbbefd.R
+50c674bb0e92d58ae8ae1c291514963e *inst/doc/mbbefd.Rnw
+d00ea555ae732c43eeb90feeb5740d93 *inst/doc/mbbefd.pdf
+50dca20d9d2028ab0f5841735f8a4565 *man/exposureCurve.Rd
+a1d69e71b87ed378e79dcc2c70958715 *man/mbbefd-package.Rd
+f87621e17f211cf3c3da78f3e725a427 *man/mbbefdDistribution.Rd
+43f4e146ea753a04993b8f62be81e441 *man/swissRe.Rd
+41b8a56e1df950bf404830a7800ed6b8 *vignettes/jss.dtx
+b9564ddd59a06782310989e8f33db55e *vignettes/jsslogo.jpg
+50c674bb0e92d58ae8ae1c291514963e *vignettes/mbbefd.Rnw
+d450f1c63aae4570f0fc5bd929bed410 *vignettes/mbbefd.bib
