@@ -104,7 +104,12 @@ x \in \left[ {0,1} \right]
 \label{eq:expoCurve2}
 \end{equation}
 
-It can be shown that $G \left( 0 \right)=0$, $G\left( 1 \right)=1$, $dG \left( d \right) \ge 0$ and $ddG \left( d \right) \le 0$. Using some calculus on Equation~\ref{eq:expoCurve2} it can be shown that the expected value is equal to $\mu = \frac{1}{dG \left( 0 \right) }$.\\
+It can be shown that $G \left( 0 \right)=0$, $G\left( 1 \right)=1$, $dG \left( d \right) \ge 0$ and $ddG \left( d \right) \le 0$. Using some calculus on Equation~\ref{eq:expoCurve2} it can be shown that the expected value is equal to the reciprocal of exposure curve derivative at 0, Equation~\ref{eq:expectedValue}.\\
+
+\begin{equation}
+  \mu = \frac{1}{dG \left( 0 \right) }
+  \label{eq:expectedValue}
+\end{equation}
 
 The probability of a total loss, $p$, is expressed by Equation~\ref{eq:totalLoss}.
 
@@ -113,7 +118,12 @@ p = 1 - F\left( 1^{-}  \right) = \frac{1}{g} = \frac{dG\left( 1 \right)}{dG\left
 \label{eq:totalLoss}
 \end{equation}
 
+It is similarly possible to write expression for the Survival Function, $S \left( x \right)$, Equation~\ref{eq:survival} and the density, Equation~\ref{eq:density}.
 
+\begin{equation}
+S\left( x \right) = \frac{{G'\left( x \right)}}{{G'\left( 0 \right)}} = \frac{{\left( {a + 1} \right){b^x}}}{{a + {b^x}}}
+\label{eq:survival}
+\end{equation}
 
 \section{The MBBEFD class and its related package}\label{sec:package}
 
@@ -126,14 +136,15 @@ The \code{mbbefdExposure} function evaluates the exposure curve for a given dest
 
 <<figureBackoffice, echo=FALSE, results=hide>>=
 x=seq(0,1,by=0.01)
-y=sapply(x,"mbbefdExposure",a=0.2,b=0.04)
+y=sapply(x,mbbefdExposure,a=0.2,b=0.04)
 @
 
 
 \begin{figure}
 \begin{center}
 <<label=drateplot,fig=TRUE,echo=FALSE>>=
-plot(x, y, type="l",lwd=2,col="steelblue",xlab="normalized loss",ylab="exposure curve",main="MBBEFD Exposure Curve for a=0.2, b=0.04")
+plot(x, y, type="l",lwd=2,col="steelblue",xlab="normalized loss",
+     ylab="exposure curve",main="MBBEFD Exposure Curve for a=0.2, b=0.04")
 @
 \caption{Exposure curve example}
 \label{fig:G1}
@@ -157,12 +168,34 @@ expectedLoss<-1/dG(x=0,a=0.2,b=0.04)*40000
 expectedLoss
 @
 
+
+Similarly, it is possible to draw the underluying suvival curve $S\left( x \right) = \frac{{G'\left( x \right)}}{{G'\left( 0 \right)}}$ using  Figure~\ref{fig:survival}.
+
+\begin{figure}
+\begin{center}
+<<label=survivalPlot,fig=TRUE,echo=FALSE>>=
+x<-seq(from=0,to=1,by=.1)
+smbbefd<-function(x,a,b) 1-pmbbefd(q=x,a=a,b=b)
+y<-sapply(x, smbbefd,a=.2,b=.04)
+
+plot(x, y, type="l",lwd=2,col="steelblue",xlab="normalized loss",
+     ylab="survival function",main="Survival function for MBBEFD at a=0.2, b=0.04",ylim=c(0,1))
+@
+\caption{Underlying survival curve}
+\label{fig:survival}
+\end{center}
+\end{figure}
+
+
 The probability of a maximum loss for such exposure curve is obtained evaluating the survival function at 1
 
 <<example1c, keep.source=TRUE>>=
-pTotalLoss<-1-pmbbefd(x=1,a=0.2,b=0.04)
+pTotalLoss<-1-pmbbefd(q=1,a=0.2,b=0.04)
 pTotalLoss
 @
+
+Similarly, it is possible to assess the mean of the distribution underlying the exposure curve 
+
 
 Quantile functions, distribution functions and density functions are defined as well. For example, the 60th percentile of the distribution above defined (i.e., how bad can be in 60\% of cases in terms of destruction rate) is
 
@@ -173,7 +206,7 @@ qmbbefd(p=0.6,a=0.2,b=0.04)
 whilst a loss worse than 80\% of IV could happen in 
 
 <<example1e, keep.source=TRUE>>=
-100*(1-pmbbefd(x=0.8,a=0.2,b=0.04))
+100*(1-pmbbefd(q=0.8,a=0.2,b=0.04))
 @
 
 cases out of 100.
@@ -210,7 +243,71 @@ integrate(dmbbefd,lower=0, upper=1, a=0.2, b=0.04)
 \section{Fitting MBBEFD curves}\label{sec:fitting}
 
 
-TO BE COMPLETED
+\cite{Bernegger} suggests an iterative process, based on the method of moments, in order to estimate the parameter of the 
+distribution function, starting from known values of $p=\frac{1}{g}$ The algoritm outilined is:
+
+\begin{enumerate}
+  \item  Try $p_0 = m_2$, being $m_2$ the second empirical moment. Obtain $g_0=\frac{1}{p_0}$.
+  \item  Solve for $b_0$ the equation $E\left[ x \right] = m_0 =  \frac{{\ln \left( {g_0*b_0} \right)}}{b_0}\frac{{1 - b_0}}{{1 - g_0*b}}$.
+  \item Get the second theoretical moment, $E\left[ x^2 \right]$ of $x$ from estimated $b_0$ and $g_0$.
+  \item Compare $E\left[ x^2 \right]$ to the empirical moment. Repeat the process modifying $p$ until the theoretical second moment is close to the empirical one enough (the second moment is an increasing function of p).
+\end{enumerate}
+
+Fitting a MBBEFD distribution is not easy. The result is sensible to initial values and appears to be instable.  We have applied the first three steps of this process in order to obtain initial estimates of $a$ and $b$ to feed the Maximum Likelihood estimation process using \pkg{fitdistrplus} package, \cite{fitdistrplus}. We show two example one using both artificial data or real one (from package \pkg{copula}, \cite{copulaR}).
+
+
+<<fitting, keep.source=TRUE>>=
+#get data
+data1<-rmbbefd(n=1000,a = .2,b=.04)
+data(loss, package = "copula")
+data2<-pmin(1,pmax(0,loss$loss/loss$limit)) #capping loss data to lim
+
+#functions used to initialize the parameters
+#using one iteration of Method of Moments
+
+#method of moments
+
+giveFunction2Minimize<-function(mu,g) {
+  out = function(b) (mu - (log(g*b)*(1 - b))/( log(b)*(1 - g*b)) )^2
+  return(out)
+}
+
+giveFunction2Integrate<-function(b,g) {
+  out = function(x) x^2*dmbbefd(x,b=b,g=g)
+  return(out)
+}
+
+giveInits<-function(x) {
+  m0<-mean(x)
+  m2<-mean(x^2)
+  
+  #p<=1/g
+  
+  p0=m2 #m2 upper limit of p0
+  g=1/p0
+  
+  #equate 1rst moment to get the mean
+  myMin<-giveFunction2Minimize(mu=m0,g=g)
+  b<-nlm(f=myMin,p=.1)$estimate
+  
+  #return a
+  a=(g-1)*b/(1-g*b)
+  out<-list(a=a, b=b)
+  return(out)
+}
+
+###fitting process
+
+library(fitdistrplus)
+#using close starting points
+est1<-fitdist(data=data1,distr = "mbbefd",method = "mle",start=list(a=.9,b=.14))
+est1
+#using estimated starting points
+inits2<-giveInits(x=data2)
+est2<-fitdist(data=data2,distr = "mbbefd",method = "mle",start=inits2)
+est1
+@
+
 
 
 %\bibliographystyle{jss}

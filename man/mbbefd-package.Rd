@@ -3,17 +3,18 @@
 \alias{mbbefd}
 \docType{package}
 \title{
-Package to Model MBBEFD distribution
+ MBBEFD distribution and exposure curve
 }
 \description{
-This package models MBBEFD distribution as well as Exposure Curves for Reinsurance exposure rating.
+It contains the definition of MBBEFD distribution (distribution function, density, quantile functions)
+as well as MBBEFD exposure curve. The vignette shows code snippets to fit the distribution to empirical data.
 }
 \details{
 \tabular{ll}{
 Package: \tab mbbefd\cr
 Type: \tab Package\cr
-Version: \tab 0.1\cr
-Date: \tab 2013-10-28\cr
+Version: \tab 0.5\cr
+Date: \tab 2015-01-10\cr
 License: \tab GPL 2\cr
 }
 }

@@ -1,3 +1,8 @@
 ChangeLog
+-Version 0.5
+10-01-2015
+Fixed various bugs
+Added estimation section
+Updated vignettes
 -Version 0.1
 	First release of the package

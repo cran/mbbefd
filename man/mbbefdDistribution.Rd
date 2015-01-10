@@ -17,7 +17,7 @@ dmbbefd(x, a, b, g)
 
 qmbbefd(p, a, b, g)
 
-pmbbefd(x, a, b, g)
+pmbbefd(q, a, b, g)
 }
 
 \arguments{
@@ -36,11 +36,15 @@ g parameter (if a not given)
 }
 
   \item{x}{
-quantile
+value of x
 }
 
   \item{p}{
 probability
+}
+
+  \item{q}{
+quantile
 }
 
 }
@@ -63,9 +67,9 @@ Giorgio Spedicato
 #few examples of the functions
 aPar=0.2
 bPar=0.04
-losses<-rmbbefd(n=1000,a=aPar,b=bPar) #for random generation
-quantiles<-qmbbefd(p=0.7,a=aPar,b=bPar) #for quantiles
-density<-dmbbefd(x=0.5,b=.04,g=20) #for density
-distrFunction<-pmbbefd(x=0.5,b=.04,g=20) #for distribution function
+rmbbefd(n=1000,a=aPar,b=bPar) #for random generation
+qmbbefd(p=0.7,a=aPar,b=bPar) #for quantiles
+dmbbefd(x=0.5,b=.04,g=20) #for density
+pmbbefd(q=0.5,b=.04,g=20) #for distribution function
 }
 
