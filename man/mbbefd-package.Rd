@@ -13,8 +13,8 @@ as well as MBBEFD exposure curve. The vignette shows code snippets to fit the di
 \tabular{ll}{
 Package: \tab mbbefd\cr
 Type: \tab Package\cr
-Version: \tab 0.5\cr
-Date: \tab 2015-01-10\cr
+Version: \tab 0.5.0.1\cr
+Date: \tab 2015-01-16\cr
 License: \tab GPL 2\cr
 }
 }

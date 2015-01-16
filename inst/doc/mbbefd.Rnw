@@ -6,9 +6,9 @@
 \usepackage{amsmath}
 
 %\usepackage{cite}
-\usepackage{draftwatermark}
-\SetWatermarkText{Draft}
-\SetWatermarkScale{1.5}
+%usepackage{draftwatermark}
+%\SetWatermarkText{Draft}
+%\SetWatermarkScale{1.5}
 
 %\usepackage{myVignette}
 
