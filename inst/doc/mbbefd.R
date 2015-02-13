@@ -16,8 +16,8 @@ library(mbbefd)
 ###################################################
 ### code chunk number 3: figureBackoffice
 ###################################################
-x=seq(0,1,by=0.01)
-y=sapply(x,mbbefdExposure,a=0.2,b=0.04)
+x<-seq(0,1,by=0.01)
+y<-sapply(x,mbbefdExposure,a=0.2,b=0.04)
 
 
 ###################################################

@@ -10,12 +10,9 @@ The functions evaluate MBBEFD distribution exposure curve (and its derivative).
 An exposure curve is defined between x between 0 and 1 and represents the ratio of the limited expected value to unlimited expected value
 }
 \usage{
-
 mbbefdExposure(x, a, b, g)
-
 dG(x, a, b, g)
 }
-
 \arguments{
 
   \item{x}{
@@ -30,7 +27,6 @@ b parameter
   \item{g}{
 g parameter, used if a not given.
 }
-
 }
 \details{
 g parameter is the inverse of total loss probability and it is used if a not given.
@@ -44,7 +40,6 @@ BERNEGGER, STEFAN. THE SWISS RE EXPOSURE CURVES AND THE MBBEFD DISTRIBUTION CLAS
 \author{
 Giorgio Spedicato
 }
-
 \seealso{
 \code{\link{dmbbefd}}, \code{\link{swissRe}}
 }

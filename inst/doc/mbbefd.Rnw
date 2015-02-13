@@ -6,9 +6,9 @@
 \usepackage{amsmath}
 
 %\usepackage{cite}
-%usepackage{draftwatermark}
-%\SetWatermarkText{Draft}
-%\SetWatermarkScale{1.5}
+\usepackage{draftwatermark}
+\SetWatermarkText{Draft}
+\SetWatermarkScale{1.5}
 
 %\usepackage{myVignette}
 
@@ -54,7 +54,7 @@
   Via Firenze 11
   20037 Italy\\
   Telephone: +39/334/6634384\\
-  E-mail: \email{lifecontingencies@statisticaladvisor.com}\\
+  E-mail: \email{spedicato\_giorgio@yahoo.it}\\
   URL: \url{www.statisticaladvisor.com}
 }
 
@@ -135,8 +135,8 @@ library(mbbefd)
 The \code{mbbefdExposure} function evaluates the exposure curve for a given destruction rate $x$, given either $a$ and $b$, or $b$ and $g$. Figure~\ref{fig:G1} displays the destruction rate by level of x, for an exposure cuve of parameters $a=0.2$ and $b=0.04$
 
 <<figureBackoffice, echo=FALSE, results=hide>>=
-x=seq(0,1,by=0.01)
-y=sapply(x,mbbefdExposure,a=0.2,b=0.04)
+x<-seq(0,1,by=0.01)
+y<-sapply(x,mbbefdExposure,a=0.2,b=0.04)
 @
 
 
