@@ -1,4 +1,4 @@
-Version 0.6
-13-01-2015
-Added Rcpp snippets
-Fixed problem in random sampler.
+Version 0.6.1
+07-03-2015
+Aligned distribution function parameters' to R usual ones: pmbbefd accepts  (q, a, b, g) and not  (x, a, b, g) anymore.
+Improved vignettes.
