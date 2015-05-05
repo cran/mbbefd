@@ -11,11 +11,33 @@
 
 #exposure curve
 
-.G<-function(x,a,b,g)
+.G<-function(x, a, b, g)
 {
-  if(missing(a)) a<-g2a(g=g,b=b)
-  out<-(log(a+b^x)-log(a+1))/(log(a+b)-log(a+1))
-  return(out)
+  if(missing(a)){
+    # using b, g
+    if(identical(g, 1) | identical(b, 0))
+      return(x)
+    if(identical(b, 1) & g > 1)
+      return(
+        log(1+(g-1)*x)/log(g)
+      )
+    if(identical(b*g, 1) & g>1)
+      return((1-b^x)/(1-b))
+    else
+      return(
+        log(((g-1)*b + (1-g*b)*b^x)/(1-b))/log(g*b)  
+      )
+  }else{
+    # using a nd b 
+    if(identical(a, 0) | identical(b, 1))
+      return(x)
+    if(a*(1-b)>0)
+      return( 
+        (log(a+b^x)-log(a+1))/(log(a+b)-log(a+1))
+      )
+    else
+      return((1-b^x) / (1-b))
+  }
 }
 
 #its derivative
@@ -34,21 +56,25 @@ dG<-function(x,a,b,g)
   return(out)
 }
 
-
 #the function to compute the exposure function
 
-mbbefdExposure<-function(x, a, b,g)
+mbbefdExposure<-function(x, a, b, g)
 {
-  if(missing(a)) a<-g2a(g=g,b=b)
-  if(x>1||x<0) stop("Error! x should be between 0 and 1")  #check parameters coherence
-  if(b<0) stop("b should be greater or equal 0")
-  out<-.G(x=x, a=a, b=b)
-  return(out)
+  if(x>1||x<0) 
+    stop("Error! x should be between 0 and 1")  #check parameters coherence
+  if(b<0) 
+    stop("b should be greater or equal 0")
+  if(missing(a)){
+    if(g <= 0) stop("g has to be greater than 0")
+    .G(x, g=g,b=b)
+  }
+  else
+    .G(x=x, a=a, b=b)
 }
 
 ####################################
 #classical functions
-#distirbution function
+#distribution function
 pmbbefd<-function(q,a,b,g)
 {
   if(missing(a)) a<-g2a(g=g,b=b)
@@ -57,8 +83,8 @@ pmbbefd<-function(q,a,b,g)
   return(out)
 }
 
-#random generation function
-.f4Random<-function(x,a,b) ifelse( ( x>= 1-(a+1)*b/(a+b) ),1,log( (a*(1-x)) / (a+x) ) /log(b))  
+#random generation function (now using the Rcpp version)
+#.f4Random<-function(x,a,b) ifelse( ( x>= 1-(a+1)*b/(a+b) ),1,log( (a*(1-x)) / (a+x) ) /log(b))  
 
 
 #inverse distribution funtcion (quantile)
@@ -66,7 +92,8 @@ qmbbefd<-function(p,a,b,g)
 {
   if(missing(a)) a<-g2a(g=g,b=b)
   if(p>1||p<0) stop("Error! p should lie between 0 and 1")
-  out<- .f4Random(x = p,a=a,b=b)
+  #out<- .f4Random(x = p,a=a,b=b) #this s the R native version
+  out<- .f4Sampler(x = p,a=a,b=b) #now using the Rcpp version instead
   #p > 1 - prob total loss would make to exceed 1. So it will return one.
   out<-ifelse(out>1, 1,out)
   return(out)
@@ -79,6 +106,7 @@ dmbbefd<-function(x,a,b,g)
   if(missing(a)) a<-g2a(g=g,b=b)
   if(x>1||x<0) stop("Error! x should lie between 0 and 1")
   out <-  -(((a+1)*a*log(b)*b^x)/((a+b^x)^2))*(x<1)+(x==1)*(a+1)*b/(a+b)
+  #out <- .dmbbefdC(x=x,a=a,b=b) #TODO: check why it does not work
   return(out)
 }
 
@@ -93,7 +121,7 @@ rmbbefd<-function(n,a,b,g)
   if(missing(a)) a<-g2a(g=g,b=b)
   out<-numeric(n)
   u<-runif(n=n,min=0,max=1)
-  out<-sapply(u,f4Sampler,a=a,b=b) #using the Rcpp function
+  out<-sapply(u,.f4Sampler,a=a,b=b) #using the Rcpp function
   return(out)
 }
 

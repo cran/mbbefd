@@ -1,4 +1,3 @@
-Version 0.6.1
-07-03-2015
-Aligned distribution function parameters' to R usual ones: pmbbefd accepts  (q, a, b, g) and not  (x, a, b, g) anymore.
-Improved vignettes.
+Version 0.7
+03-05-2015
+Markus Gessman added as contributor. New vignette on exposure rating added.

@@ -1,25 +1,33 @@
 Package: mbbefd
 Type: Package
-Title: Maxwell Bolzano Bose Einstein Fermi Dirac Distribution and
-        Exposure Curve
-Version: 0.6.1
-Date: 2015-03-08
-Author: Giorgio Spedicato
-Maintainer: Giorgio Spedicato <spedicato_giorgio@yahoo.it>
-Description: It contains the definition of Maxwell Bolzano Bose Einstein Fermi
-    Dirac (MBBEFD) distribution (distribution, density, quantile, random
-    generation functions) as well as MBBEFD exposure curve, used in actuarial
-    application to price reinsurance contracts. The vignette shows code
-    snippets to fit the distribution to empirical data.
+Title: Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution and
+        Destruction Rate Modelling
+Version: 0.7
+Date: 2015-05-05
+Authors@R: c(person("Giorgio", "Spedicato", role = c("aut", "cre"),
+    email = "spedicato_giorgio@yahoo.it"),
+    person("Christophe", "Dutang", role = "aut"),
+    person("Markus", "Gesmann", role = "ctb",
+    email = "markus.gesmann@gmail.com"))
+Description: Distributions that are typically used for exposure rating in
+             general insurance, in particular to price reinsurance contracts.
+             The vignettes show code snippets to fit the distribution to
+             empirical data.
 License: GPL-2
-Depends: R (>= 2.14)
+Depends: R (>= 2.14), actuar, gsl
 ByteCompile: yes
-Suggests: testthat, copula, fitdistrplus
+Suggests: testthat, copula, fitdistrplus, pander, knitcitations,
+        rmarkdown, knitr, lattice
 LinkingTo: Rcpp
 Imports: Rcpp
 URL: http://github.com/spedygiorgio/mbbefd
 BugReports: http://github.com/spedygiorgio/mbbefd/issues
-Packaged: 2015-03-08 22:07:24 UTC; Giorgio
+VignetteBuilder: knitr
 NeedsCompilation: yes
+Packaged: 2015-05-04 22:13:01 UTC; Giorgio
+Author: Giorgio Spedicato [aut, cre],
+  Christophe Dutang [aut],
+  Markus Gesmann [ctb]
+Maintainer: Giorgio Spedicato <spedicato_giorgio@yahoo.it>
 Repository: CRAN
-Date/Publication: 2015-03-08 23:58:36
+Date/Publication: 2015-05-05 06:18:49

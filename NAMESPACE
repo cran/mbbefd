@@ -1,5 +1,38 @@
 #exportPattern("^[[:alpha:]]+")
+#C++ version of the MBBEFD distribution
 export(mbbefdExposure,rmbbefd,dmbbefd,pmbbefd,qmbbefd,swissRe,g2a,dG)
+
+#R version of the MBBEFD distribution
+export(dmbbefdR, pmbbefdR, qmbbefdR, rmbbefdR, ecmbbefdR, mmbbefdR, tlmbbefdR)
+export(dMBBEFDR, pMBBEFDR, qMBBEFDR, rMBBEFDR, ecMBBEFDR, mMBBEFDR, tlMBBEFDR)
+
+#finite-support distributions 
+importFrom(actuar, munif, levunif) #d,p,q,r in base R
+export(ecunif)
+importFrom(actuar, mbeta, levbeta) #d,p,q,r in base R
+importFrom(gsl, dilog) #dilogarith function used somewere
+export(ecbeta)
+export(dstpareto, pstpareto, qstpareto, rstpareto, ecstpareto, mstpareto)
+
+#one-inflated distributions (on the unit interval)
+export(doifun, poifun, qoifun, roifun, ecoifun, moifun)
+export(doiunif, poiunif, qoiunif, roiunif, ecoiunif, moiunif)
+export(doibeta, poibeta, qoibeta, roibeta, ecoibeta, moibeta)
+export(doistpareto, poistpareto, qoistpareto, roistpareto, ecoistpareto, moistpareto)
+
+#total loss
+export(etl)
+
+#eecf class for exposure curve function
+export(eecf)
+S3method(summary, eecf)
+S3method(print, eecf)
+S3method(print, summary.eecf)
+S3method(plot, eecf)
+
+
 #export(g2a)
 importFrom(Rcpp,sourceCpp)
 useDynLib(mbbefd)
+
+
