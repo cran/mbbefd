@@ -17,29 +17,29 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
-// dmbbefdC
-double dmbbefdC(double x, double a, double b);
-RcppExport SEXP mbbefd_dmbbefdC(SEXP xSEXP, SEXP aSEXP, SEXP bSEXP) {
+// rmbbefdC
+NumericVector rmbbefdC(int n, double a, double b);
+RcppExport SEXP mbbefd_rmbbefdC(SEXP nSEXP, SEXP aSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
     Rcpp::traits::input_parameter< double >::type a(aSEXP);
     Rcpp::traits::input_parameter< double >::type b(bSEXP);
-    __result = Rcpp::wrap(dmbbefdC(x, a, b));
+    __result = Rcpp::wrap(rmbbefdC(n, a, b));
     return __result;
 END_RCPP
 }
-// f4Sampler
-double f4Sampler(double x, double a, double b);
-RcppExport SEXP mbbefd_f4Sampler(SEXP xSEXP, SEXP aSEXP, SEXP bSEXP) {
+// rMBBEFDC
+NumericVector rMBBEFDC(int n, double g, double b);
+RcppExport SEXP mbbefd_rMBBEFDC(SEXP nSEXP, SEXP gSEXP, SEXP bSEXP) {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    Rcpp::traits::input_parameter< double >::type a(aSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< double >::type g(gSEXP);
     Rcpp::traits::input_parameter< double >::type b(bSEXP);
-    __result = Rcpp::wrap(f4Sampler(x, a, b));
+    __result = Rcpp::wrap(rMBBEFDC(n, g, b));
     return __result;
 END_RCPP
 }

@@ -3,16 +3,19 @@
 # Author: Giorgio
 ###############################################################################
 
+#adding a startup message
+#for future version, should test : if(verbose <- getOption("verbose")) 
 
-# display version number and date when the package is loaded
-# .onAttach <- function(libname, pkgname) {
-# 	desc  <- packageDescription(pkgname, libname)
-# 	packageStartupMessage(
-# 			'Version:  ', desc$Version, '\n', 
-# 			'Date:     ', desc$Date, '\n',
-# 			'Author:   ', 'Giorgio Alfredo Spedicato Ph.D, C.Stat ACAS'
-# 	)
-# }
+.onAttach <- function(libname, pkgname) {
+  desc  <- packageDescription(pkgname, libname)
+  packageStartupMessage('Package:  ', desc$Package, '\n',
+                        'Version:  ', desc$Version, '\n', 
+                        'Date:     ', desc$Date, '\n',
+                        'BugReport: ', desc$BugReports, '\n\n')
+}
+
+
+
 
 # for unloading dynamic libraries
 

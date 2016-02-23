@@ -1,6 +1,11 @@
+Version 0.8
+20-02-2016
+Added data sets (aon and loss).
+Start an unified approach for paramater estimation
+based on the fitdist function from fitdistrplus.
 Version 0.7
 05-05-2015
-Markus Gessman added as contributor, adding new vignette on exposure rating.
+Markus Gesmann added as contributor, adding new vignette on exposure rating.
 Version 0.6.3
 29-03-2015
 Fixed some calls to Rcpp code.

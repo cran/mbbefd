@@ -10,20 +10,20 @@ Compute the empirical total loss.
 }
 \usage{
 
-etl(x)
+etl(x, na.rm=FALSE)
 
 
 }
 
 \arguments{
-\item{x}{
-numeric vector of the observations.
-}
-
+\item{x}{numeric vector of the observations.}
+\item{na.rm}{a logical value indicating whether \code{NA} values should 
+be stripped before the computation proceeds.}
 
 }
 \details{
-TODO!
+Compute the empirical total loss defined as the proportion of full destruction rates,
+that is observations that equal 1.
 
 }
 \value{
