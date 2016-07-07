@@ -1,7 +1,7 @@
-2845f19b8bad0bb500354c64d3194fb4 *ChangeLog
-3a176250f0f8eb7cbebd3baebca2b96f *DESCRIPTION
+30eef72bc5a9be42ecfbadc1917aa2af *ChangeLog
+69edd64134ea4daad73b2f8fc71d7941 *DESCRIPTION
 325267c7eba4a1d35593e20e01e0b348 *NAMESPACE
-6cd6b403bc00937ed02927314dfcd250 *NEWS
+d0424d16da7e8314ffc693d0deabda30 *NEWS
 42dd0a7a4d230798e23db4a7739eb647 *R/RcppExports.R
 c6a4d36d2b37934c82f858f998f0499e *R/data-documentData-old.R
 0d8d9a8bd5c0ba54c803845aa6f0bf70 *R/data-swissrecurves.R
@@ -18,9 +18,9 @@ ad730ec2d6c32d8fa26982436e44826e *R/distr-mbbefdCpp.R
 aa67278ef1981cd688e0decb98b58339 *R/distr-shftrncPareto.R
 58b7c9e4f8e59844291ee576c1986b8e *R/distr-theo-ecf.R
 a44c0c0712fbed7343c308a503158cf0 *R/fitDR-bootstrap.R
-a7868f06d091d414e7d1a8111e04cd92 *R/fitDR-output.R
+d30cc6895b9698c618fbf230fbe666cd *R/fitDR-output.R
 abfd58bc902351c3e84d59cf01acfe49 *R/fitDR-prefit.R
-1715deb1efa98db9d5f2fe6aa0fc9653 *R/fitDR.R
+01e2688f2a71a782eb36963d42cace32 *R/fitDR.R
 b9b73c0be239e6c7fd5d93629cc70195 *R/graph-eccomp.R
 e137583469c0ba0d84d6c9bde9992d83 *R/graph-func-old.R
 00c74720d42c7b5551d0850e58cc092a *R/util-CInftransform.R
@@ -39,7 +39,7 @@ feb8ad7f0b260b836136dfe8e7daea67 *demo/00Index
 f7d0de2099174388a5f05986f70ecdc7 *demo/initializers.R
 3eb8bcef427d9d16d10fe966c9fe21d3 *inst/doc/Introduction_to_mbbefd.R
 5f38a2735d1356162a188a638597ac78 *inst/doc/Introduction_to_mbbefd.Rmd
-aa9e68170c626877b6e8db3a2e15a2ca *inst/doc/Introduction_to_mbbefd.pdf
+88562ca7d89b7d2e3eecd6287958df70 *inst/doc/Introduction_to_mbbefd.pdf
 19655dc71860a21171ac41bcafd7198d *man/1infl-Distribution.Rd
 97a0fa7f21f6b111b552228924f4780d *man/1infl-beta.Rd
 da9be93d839291b664799852be02bbcd *man/1infl-genbeta.Rd
@@ -53,11 +53,11 @@ c03b679dea61a54a56dd5c229c5301d1 *man/asiacomrisk.Rd
 d5e1e3f82f28898b10f11b9fdc265930 *man/eecf.Rd
 629b852133b1a0e719f864a12c80bd4d *man/etl.Rd
 3b52ecb96310b300e1341e0f134d9265 *man/exposureCurve.Rd
-b59dfbbb7bfa932437ac16da1d11f1e4 *man/fitDR.Rd
+61b6df75f1fabde124b9dbcac336a1d6 *man/fitDR.Rd
 be44ff7024a629dea65c05f4e9bac25d *man/g2a.Rd
 2b9c3304461638b104945e998c481834 *man/graph-eccomp.Rd
 05ac30c452c45bb7c7172fb85a9d2503 *man/lossalae.Rd
-742a95d62e3cea9fdc6400a3831fae49 *man/mbbefd-package.Rd
+90b20a1c28034ff5ed0c5aaf2b54b1c8 *man/mbbefd-package.Rd
 63376834d6706c5359b8baea3eb123bb *man/mbbefdDistribution.Rd
 3dd2805696736a6e5974f4f3dcadcccb *man/swissRe.Rd
 a6e4aa32269b2f5a0574019efbf93a06 *src/RcppExports.cpp
@@ -69,6 +69,7 @@ a53eba6c46efd8af4cc22f34a49e0c7c *tests/test-1inf-beta.R
 ee202814cfc5b3d9d65216ecad015701 *tests/test-1inf-shftrncPareto.R
 615c548baaf51cd1d210de3aaa7fb74d *tests/test-1inf-unif.R
 af43739980c79bf3a4cf1072c0f8a6d9 *tests/test-GB1.R
+012cff91fe3dbfff3ad6ee4ef490df6d *tests/test-asiacom.R
 cd3ffb712814b2bdbe6fbce8e10669d5 *tests/test-beaonre.R
 30a17bf70bd393e875b9dae712411ca6 *tests/test-eecf.R
 e740f4de8855948284d7a69b8214af60 *tests/test-fit-MBBEFDgb.R
@@ -78,7 +79,7 @@ fe3983cb73b54a4f69eca5145ac35a29 *tests/test-fit-oibeta.R
 3f1b9a12939e6302f5ecc9f504484f03 *tests/test-fit-oigbeta.R
 7eb7eb66247de413a6066acf2de8eb8a *tests/test-fit-oistpareto.R
 19d8d27e2e055606dc9bb495f9133242 *tests/test-fit-oiunif.R
-8883367e1fe7f1fe94db663487741d1d *tests/test-lossalae.R
+59fff610c37012f07b5eb5fd23cf988a *tests/test-lossalae.R
 2f4dcd2a3fdeff0021474be7ec82799c *tests/test-mbbefd-1stparam.R
 23d80648a08a293658300fd6fdf7b7d4 *tests/test-mbbefd-2ndparam.R
 382005afcb9123c4cec8c0a1df9a64a4 *tests/test-rng-mbbefd.R
