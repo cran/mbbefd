@@ -88,7 +88,7 @@ xyplot(Value ~ Loss | Type,
 
 ## ------------------------------------------------------------------------
 S <- function(x){ 1 - plnorm(x, mu, sigma) }
-(lyr <- integrate(S, 0, 100)$value - integrate(S, 0, 80)$value)
+(lyr <- integrate(S, 80, 100)$value)
 
 ## ------------------------------------------------------------------------
 (ILF <- integrate(S, 0, 100)$value / integrate(S, 0, 80)$value)
