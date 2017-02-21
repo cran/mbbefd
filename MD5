@@ -1,7 +1,7 @@
-5e5c65a57ed8af9c323d1f275d220549 *ChangeLog
-bde556e2c1fab12af30305c16299de88 *DESCRIPTION
-365a2a27804dda456f2b4b699600bd6e *NAMESPACE
-4c6ff5815cca495bac77de571e7c9e56 *NEWS
+fce4fd7dd2628cf67e3b37db564a1c5c *ChangeLog
+f7e55a9c8670298ad7c5e4a9e0392205 *DESCRIPTION
+b32c04fc36797d241baab599c1a12853 *NAMESPACE
+45fc17a5fd7919216757ebcb78689960 *NEWS
 40ff12bc31e1c49308675c29604ccbc8 *R/RcppExports.R
 c6a4d36d2b37934c82f858f998f0499e *R/data-documentData-old.R
 0d8d9a8bd5c0ba54c803845aa6f0bf70 *R/data-swissrecurves.R
@@ -31,7 +31,7 @@ c7013d63202447cd6d76a2255a1e0097 *R/util-gendilogintegral.R
 9dd540b12920ea4c4365c5330e094447 *R/util-loglikfunc.R
 7d2c7d27daea7fa7883571d93dcf3a6a *R/zzz.R
 00fdb035d519af4342e1e497d9ae1d81 *README.md
-deefffb6dd91cea8d7cf1288cd583bd9 *build/vignette.rds
+5cee5242ff16aeab603c7a8ac0005526 *build/vignette.rds
 f41f6cb1bd0601d7e4f24ed66ce66784 *data/asiacomrisk.rda
 53acc196deceb3a05d4dbab09275cd97 *data/beaonre.rda
 1ad510c821de081615c135aff4c85953 *data/itagradescore.rda
@@ -40,7 +40,7 @@ feb8ad7f0b260b836136dfe8e7daea67 *demo/00Index
 f7d0de2099174388a5f05986f70ecdc7 *demo/initializers.R
 99620c4dac065b93aaf8f5420805661e *inst/doc/Introduction_to_mbbefd.R
 d228e4159d0fa4cef3d73aff7b8d733d *inst/doc/Introduction_to_mbbefd.Rmd
-0cf29cd50c607141acd3e5754f27e342 *inst/doc/Introduction_to_mbbefd.pdf
+6bdc2f2194fa6d358fe174aaf92e3415 *inst/doc/Introduction_to_mbbefd.pdf
 19655dc71860a21171ac41bcafd7198d *man/1infl-Distribution.Rd
 97a0fa7f21f6b111b552228924f4780d *man/1infl-beta.Rd
 da9be93d839291b664799852be02bbcd *man/1infl-genbeta.Rd
@@ -59,10 +59,11 @@ be44ff7024a629dea65c05f4e9bac25d *man/g2a.Rd
 2b9c3304461638b104945e998c481834 *man/graph-eccomp.Rd
 8ba82ce0cd30c57aac1a10797c68067b *man/itagradscore.Rd
 05ac30c452c45bb7c7172fb85a9d2503 *man/lossalae.Rd
-4950968f1d124180935c363a8342ed81 *man/mbbefd-package.Rd
+88952867b03bc10e33244e5a6f50018b *man/mbbefd-package.Rd
 63376834d6706c5359b8baea3eb123bb *man/mbbefdDistribution.Rd
 3dd2805696736a6e5974f4f3dcadcccb *man/swissRe.Rd
 05c48a448d3fca9e66f30a9643eacd18 *src/RcppExports.cpp
+24ca0957e12a6b2eca200a72c77d6541 *src/init.c
 6dee1b46531f6de1e863a9465cb8d3bf *src/mbbefdRcppCode.cpp
 b1bc650d56e94e1f653fcc0b5916ac61 *tests/check-formula-integral.R
 6be6b0b85015e9c2545f2817c09b0f2f *tests/check-formula-variance.R
