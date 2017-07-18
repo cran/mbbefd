@@ -1,8 +1,8 @@
-fce4fd7dd2628cf67e3b37db564a1c5c *ChangeLog
-f7e55a9c8670298ad7c5e4a9e0392205 *DESCRIPTION
+b504fb79770f282415ce44a90fdd60c7 *ChangeLog
+5740f9179444ff837e0f64b2a555496e *DESCRIPTION
 b32c04fc36797d241baab599c1a12853 *NAMESPACE
-45fc17a5fd7919216757ebcb78689960 *NEWS
-40ff12bc31e1c49308675c29604ccbc8 *R/RcppExports.R
+e7f419afcf5373ea8eb95dbb25ceca2f *NEWS
+093c74f85426b3126cd970d9ca0f75e1 *R/RcppExports.R
 c6a4d36d2b37934c82f858f998f0499e *R/data-documentData-old.R
 0d8d9a8bd5c0ba54c803845aa6f0bf70 *R/data-swissrecurves.R
 a038b6a1486ce69e6f185d54cefa77da *R/distr-1infl-beta.R
@@ -40,7 +40,7 @@ feb8ad7f0b260b836136dfe8e7daea67 *demo/00Index
 f7d0de2099174388a5f05986f70ecdc7 *demo/initializers.R
 99620c4dac065b93aaf8f5420805661e *inst/doc/Introduction_to_mbbefd.R
 d228e4159d0fa4cef3d73aff7b8d733d *inst/doc/Introduction_to_mbbefd.Rmd
-6bdc2f2194fa6d358fe174aaf92e3415 *inst/doc/Introduction_to_mbbefd.pdf
+6e3ac33bb1bf676bf4b3e6fff758ebd4 *inst/doc/Introduction_to_mbbefd.pdf
 19655dc71860a21171ac41bcafd7198d *man/1infl-Distribution.Rd
 97a0fa7f21f6b111b552228924f4780d *man/1infl-beta.Rd
 da9be93d839291b664799852be02bbcd *man/1infl-genbeta.Rd
@@ -62,8 +62,7 @@ be44ff7024a629dea65c05f4e9bac25d *man/g2a.Rd
 88952867b03bc10e33244e5a6f50018b *man/mbbefd-package.Rd
 63376834d6706c5359b8baea3eb123bb *man/mbbefdDistribution.Rd
 3dd2805696736a6e5974f4f3dcadcccb *man/swissRe.Rd
-05c48a448d3fca9e66f30a9643eacd18 *src/RcppExports.cpp
-24ca0957e12a6b2eca200a72c77d6541 *src/init.c
+e12763e0295a33da0996bea23e66613f *src/RcppExports.cpp
 6dee1b46531f6de1e863a9465cb8d3bf *src/mbbefdRcppCode.cpp
 b1bc650d56e94e1f653fcc0b5916ac61 *tests/check-formula-integral.R
 6be6b0b85015e9c2545f2817c09b0f2f *tests/check-formula-variance.R
