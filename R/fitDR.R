@@ -38,7 +38,6 @@ fitDR <- function(x, dist, method="mle", start=NULL, optim.method="default", ...
       #wrap gradient -LL to match the call by fitdist
       grLL <- function(x, fix.arg, obs, ddistnam) 
         -grLLfunc(obs=obs, theta=x, dist="mbbefd")
-      
       #domain : (a,b) in (-1, 0) x (1, +Inf)
       alabama1 <- mledist(x, distr="mbbefd", start=initparmbbefd[[1]], 
                         custom.optim= constrOptim.nl, hin=constrmbbefd1, 
@@ -63,7 +62,6 @@ fitDR <- function(x, dist, method="mle", start=NULL, optim.method="default", ...
         
       }
       f1 <- fitDR.addcomp(x=x, theta=f1$estimate, dist="mbbefd", method="mle", f1$convergence)
-      
     }else if(method == "tlmme")
     {
       DIFF2 <- function(par, obs) 
