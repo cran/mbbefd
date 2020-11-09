@@ -1,17 +1,16 @@
-## ----setup, echo=FALSE, message=FALSE, warning=FALSE---------------------
+## ----setup, echo=FALSE, message=FALSE, warning=FALSE--------------------------
 library("mbbefd")
-library("knitcitations")
-cleanbib()
-options("citation_format" = "pandoc")
-bib <- read.bibtex("mbbefd.bib")
+#library("knitcitations")
+#cleanbib()
+#options("citation_format" = "pandoc")
+#bib <- read.bibtex("mbbefd.bib")
 library(lattice)
 my.settings <- canonical.theme(color=FALSE)
 my.settings[['fontsize']] = list(text = 8, points = 4)
 my.settings[['strip.background']]$col <- "darkgrey"
 my.settings[['strip.border']]$col<- "black"  
 
-## ---- fig.height=2.5, fig.width=6, echo=FALSE, warning=FALSE-------------
-library(lattice)
+## ----cdfsurv, fig.height=2.5, fig.width=6, echo=FALSE, warning=FALSE, fig.align="center"----
 n <- 100
 Loss <- seq(1, 150, length=n)
 mu <- 4.13
@@ -27,38 +26,39 @@ dat <- data.frame(Loss=rep(Loss, 3),
                                   "SF: S(x)=1-F(x)"),
                          ordered=TRUE))
 xyplot(Value ~ Loss | Type, data=dat, ylab="", 
-       layout=c(3,1), as.table=TRUE, t="l",
+       layout=c(3,1), as.table=TRUE, type="l",
        par.settings = my.settings, 
        par.strip.text=list(col="white", font=2), 
        scales=list(relation="free", alternating=1))
 
-## ----LEV, fig.height=2.5, fig.width=5, echo=FALSE------------------------
+## ----LEV, fig.height=2.5, fig.width=5, echo=FALSE, fig.align="center"---------
 alpha <- 100
-xyplot(Value ~ Loss | Type, 
-       data=subset(dat, !Type %in% "PDF: f(x)"), 
-       ylab="", 
-       panel=function(x,y,...){
-         x1 <- c(x[x<=alpha])
+fxy <- function(x,y,...){
+         x1 <- as.numeric(x[x<=alpha])
          if(panel.number()<2){
            panel.polygon(c(x1, rev(x1)),
-                          rev(c(rep(1, length(x[x<=alpha])),
+                          rev(c(rep(1, length(x1)),
                            rev(y[x<=alpha]))),
                          col="skyblue", border=NA)
          }else{
            panel.polygon(c(x1, rev(x1)),
-                         c(rep(0, length(x[x<=alpha])),
+                         c(rep(0, length(x1)),
                            rev(y[x<=alpha])),
                         col="skyblue", border=NA)
          }
          panel.xyplot(x,y,...)
          #panel.text(x=20, y=0.4, label=paste("LEV[X]", cex=2)
-       },
-       layout=c(2,1), as.table=TRUE, t="l",
+       }
+xyplot(Value ~ Loss | Type, 
+       data=subset(dat, !Type %in% "PDF: f(x)"), 
+       ylab="", 
+       panel=fxy,
+       layout=c(2,1), as.table=TRUE, type="l",
        par.settings = my.settings, 
        par.strip.text=list(col="white", font=2), 
        scales=list(relation="free", alternating=1))
 
-## ----LEV2, fig.height=2.5, fig.width=5, echo=FALSE-----------------------
+## ----LEV2, fig.height=2.5, fig.width=5, echo=FALSE, fig.align="center"--------
 alpha1 <- 80
 alpha2 <- 100
 xyplot(Value ~ Loss | Type, 
@@ -86,14 +86,14 @@ xyplot(Value ~ Loss | Type,
        par.strip.text=list(col="white", font=2), 
        scales=list(relation="free", alternating=1))
 
-## ------------------------------------------------------------------------
+## ----checkEL------------------------------------------------------------------
 S <- function(x){ 1 - plnorm(x, mu, sigma) }
 (lyr <- integrate(S, 80, 100)$value)
 
-## ------------------------------------------------------------------------
+## ----ILF----------------------------------------------------------------------
 (ILF <- integrate(S, 0, 100)$value / integrate(S, 0, 80)$value)
 
-## ----ExposureCurve, dev.args=list(pointsize=8), fig.height=3, fig.width=3----
+## ----ExposureCurve, dev.args=list(pointsize=8), fig.height=3, fig.width=3, fig.align="center"----
 MPL <- 200
 ExpectedLoss <- 65
 Deductible <- seq(0, MPL, 1)
@@ -109,30 +109,36 @@ plot(Deductible/MPL, G,
      xlim=c(0,1), ylim=c(0,1))
 abline(a=0, b=1, lty=2)
 
-## ----simufit, echo=TRUE, fig.height=5, fig.width=5, warning=FALSE--------
-library(mbbefd)
+## ----simufit, echo=TRUE, warning=FALSE----------------------------------------
 set.seed(123456)
 x <- c(rbeta(50, 3, 1/2), rmbbefd(50, 1/2, 1/10))
 f1 <- fitDR(x, "mbbefd", method="mle")
 summary(f1)
 b1 <- bootDR(f1, niter=20)
 summary(b1)
-par(mfrow=c(1, 2))
-denscomp(f1, demp=TRUE)
-plot(b1, enhance=TRUE)
 
-## ----simufit2, echo=TRUE, fig.height=5, fig.width=10, warning=FALSE------
+## ----denplot, echo=FALSE, fig.height=3.5, fig.width=4, fig.align="center"-----
+par(cex.main=0.8,  cex.lab=0.8, cex.axis=0.8, cex=0.8)
+denscomp(f1, demp=TRUE, main="Histogram and theoretical densities")
+
+## ----bootstrapplot,echo=FALSE, fig.height=5, fig.width=5, fig.align="center"----
+par(cex.main=0.8,  cex.lab=0.8, cex.axis=0.8, mar=c(2,2,2,2))
+plot(b1, enhance=TRUE, main="Bootstrapped value of parameters")
+
+## ----simufit2, echo=TRUE, fig.height=5, fig.width=10, warning=FALSE, fig.align="center"----
 f2 <- fitDR(x, "oibeta", method="mle")
 f3 <- fitDR(x, "oiunif", method="mle")
 gofstat(list(f1, f2, f3))
 par(mfrow=c(1, 2))
 cdfcomp(list(f1, f2, f3), leg=c("mbbefd", "oibeta", "oiunif"))
-denscomp(list(f1, f2, f3), leg=c("mbbefd", "oibeta", "oiunif"), ylim=c(0,4), xleg="topleft")
+denscomp(list(f1, f2, f3), leg=c("mbbefd", "oibeta", "oiunif"), 
+         ylim=c(0,4), xleg="topleft")
 
-## ----simufit3, echo=TRUE, fig.height=5, fig.width=5, warning=FALSE-------
+## ----simufit3, echo=TRUE, fig.height=3.5, fig.width=3.5, warning=FALSE, fig.align="center"----
+par(cex=0.8)
 eccomp(list(f1, f2, f3), leg=c("mbbefd", "oibeta", "oiunif"), do.points=FALSE)
 
-## ----SwissReExample, message=FALSE, echo=FALSE, warning=FALSE------------
+## ----SwissReExample, message=FALSE, echo=FALSE, warning=FALSE-----------------
 Client <- scan(textConnection(
 '150 75 250 200 400 325 600 500 800 700 1000 900 1250 1125 1500 1375 1750 1625 2000 1875 2500 2250 3000 2750 4000 3500 5500 4750 9000 7250 12500 10750 18000 15250 24000 21000 36000 30000 48000 42000 72000 60000 90000 81000'))
 MaxMPL <- Client[seq(from=1, to=length(Client),by = 2)]
@@ -158,11 +164,11 @@ retainedDed <- D/MPLoss*1000
 retainedLoss <- ecMBBEFD(retainedDed, b=swissRe(4)['b'], g=swissRe(4)['g'])
 prem <- 1194 * (1 - retainedLoss)
 
-## ----SwissRe2------------------------------------------------------------
-XL_ROL <- function(Deductible, Limit, MaxMPL, 
+## ----SwissRe2-----------------------------------------------------------------
+Premium_rate <- function(Deductible, Limit, MaxMPL, 
                    MeanMPL, GrossPremium, C, ULR){
   DedPerMPL <- Deductible / ifelse(MaxMPL < Deductible, Deductible, 
-                                   ifelse(MaxMPL<Limit, MaxMPL, Limit))
+                                   ifelse(MaxMPL<Limit, MeanMPL, Limit))
   LossShare <- 1 - apply(cbind(DedPerMPL, C), 1, 
                          function(x){ 
                            ecMBBEFD(x[1], 
@@ -176,10 +182,10 @@ XL_ROL <- function(Deductible, Limit, MaxMPL,
   sum(XL_Premium)/sum(NetPremium)*ULR
 }
 
-rol <- XL_ROL(Deductible = D,
-              Limit = L,
-              MaxMPL = ClientData$MaxMPL,
-              MeanMPL = ClientData$MeanMPLGrossLoss,
-              GrossPremium = ClientData$GrossPremium,
-              C=ClientData$ExposureCurve, ULR=0.55)
+pr <- Premium_rate(Deductible = D,
+                   Limit = L,
+                   MaxMPL = ClientData$MaxMPL,
+                   MeanMPL = ClientData$MeanMPLGrossLoss,
+                   GrossPremium = ClientData$GrossPremium,
+                   C=ClientData$ExposureCurve, ULR=0.55)
 
