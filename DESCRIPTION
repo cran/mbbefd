@@ -2,9 +2,9 @@ Package: mbbefd
 Type: Package
 Title: Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution and
         Destruction Rate Modelling
-Version: 0.8.10
+Version: 0.8.11
 Authors@R: c(
-    person("Christophe", "Dutang", role = c("aut", "cre"), email = "christophe.dutang@ensimag.fr", comment = c(ORCID = "0000-0001-6732-1501")),
+    person("Christophe", "Dutang", role = c("aut", "cre"), email = "dutangc@gmail.com", comment = c(ORCID = "0000-0001-6732-1501")),
     person("Giorgio", "Spedicato", role = "aut", email = "spedicato_giorgio@yahoo.it", comment = c(ORCID = "0000-0002-0315-8888")),
     person("Markus", "Gesmann", role = "ctb", email = "markus.gesmann@gmail.com"))
 Description: Distributions that are typically used for exposure rating in
@@ -25,10 +25,10 @@ VignetteBuilder: knitr
 SystemRequirements: GNU make
 NeedsCompilation: yes
 RoxygenNote: 6.0.1
-Packaged: 2021-06-08 07:06:22 UTC; dutang
+Packaged: 2023-08-28 19:55:49 UTC; dutang
 Author: Christophe Dutang [aut, cre] (<https://orcid.org/0000-0001-6732-1501>),
   Giorgio Spedicato [aut] (<https://orcid.org/0000-0002-0315-8888>),
   Markus Gesmann [ctb]
-Maintainer: Christophe Dutang <christophe.dutang@ensimag.fr>
+Maintainer: Christophe Dutang <dutangc@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-06-08 07:40:02 UTC
+Date/Publication: 2023-08-28 22:00:03 UTC

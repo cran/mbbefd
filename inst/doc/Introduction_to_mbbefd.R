@@ -87,6 +87,8 @@ xyplot(Value ~ Loss | Type,
        scales=list(relation="free", alternating=1))
 
 ## ----checkEL------------------------------------------------------------------
+sigma <- sqrt(log(1 + 0.3^2))
+mu <- log(65) - sigma^2/2
 S <- function(x){ 1 - plnorm(x, mu, sigma) }
 (lyr <- integrate(S, 80, 100)$value)
 
