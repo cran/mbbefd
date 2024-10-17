@@ -1,5 +1,4 @@
-fc33ad1910847663382ce38dc6ffa007 *ChangeLog
-d66d909d740b6bdbf417f505a40abb37 *DESCRIPTION
+d73dd1141f3c9cf12cc11ebb05116087 *DESCRIPTION
 24551aa9e5ce9e6f41829444eb92fd25 *NAMESPACE
 e487f3e9b6c4d9d57e34302739085d66 *NEWS
 33ef65acbeb814d6881253bee3df8177 *R/RcppExports.R
@@ -29,9 +28,9 @@ f7a58ec3ce60f142862ef25f35299643 *R/util-gendilogintegral.R
 7f73c6ec8fa68435619ab01bbad6dd5c *R/util-internal-test-mean.R
 310365d3c755303f81a8aecf3a5ebef1 *R/util-loglikfunc.R
 b8253ff9b5240682f9ad960aeb067bdc *R/zzz.R
-bd8e21248c210f16985321b9ef213839 *README.md
-a845af596025a264abfe9f2d7bf76f76 *build/partial.rdb
-74523365bebe1551ad08614c0b2e7792 *build/vignette.rds
+ba4a2993f39a850316534ed11b4c2382 *README.md
+c772048164a5fc6aa085c3d840253169 *build/partial.rdb
+51c666eefa19a3f7daf5b2f0946edd8d *build/vignette.rds
 f41f6cb1bd0601d7e4f24ed66ce66784 *data/asiacomrisk.rda
 53acc196deceb3a05d4dbab09275cd97 *data/beaonre.rda
 1ad510c821de081615c135aff4c85953 *data/itagradescore.rda
@@ -39,10 +38,10 @@ f41f6cb1bd0601d7e4f24ed66ce66784 *data/asiacomrisk.rda
 2dcb9026e3c846b7bedc16dd42357186 *demo/00Index
 c8d95bc53de207ac4cefdd125c215cc5 *demo/initializers.R
 b51b16ae6c5df90d6bdee5b6e2e70309 *inst/CITATION
-5dc0a4dc96b88e46439fb3ce34371ea5 *inst/NEWS.Rd
+d38eaa70bf4ea4e02f9ec2f6c6139588 *inst/NEWS.Rd
 cfe30fe2e736b10da4ebd06eb97d8c14 *inst/doc/Introduction_to_mbbefd.R
 e4545b89a72523d31ef597b84bae02de *inst/doc/Introduction_to_mbbefd.Rmd
-23bf77a38c58bbb532503ae21a16b216 *inst/doc/Introduction_to_mbbefd.pdf
+fae8a9e3794fad99178bf9506e162181 *inst/doc/Introduction_to_mbbefd.pdf
 e2076d8f86ea6e668f5e886725a90913 *man/1infl-Distribution.Rd
 f0ccd97b4dfd1e5a0a42c4afde67e425 *man/1infl-beta.Rd
 d9c432f261f48de68a4bbdcc3677625b *man/1infl-genbeta.Rd
@@ -56,7 +55,7 @@ fb01283c2e5bca1061effc565df4cdff *man/beaonre.Rd
 0cb6b6e1159437869e941d6b952283b1 *man/eecf.Rd
 18d18e9f79434506f18e366fe02c5443 *man/etl.Rd
 626a8750c8958802847881cdbcc1d287 *man/exposureCurve.Rd
-8ca8765fcb017ff52c86704dcf71151b *man/fitDR.Rd
+fb3fca71391561248513a8b8a89ae3b2 *man/fitDR.Rd
 3c68f2964b53a027f2d43d0b3a0eb6b0 *man/g2a.Rd
 fe1369635f32d392ca3e8572e099efb5 *man/graph-eccomp.Rd
 f2805654e8d46aeb7ff67f486b9f0e69 *man/itagradscore.Rd

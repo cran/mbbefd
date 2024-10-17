@@ -2,6 +2,13 @@
 \title{\pkg{mbbefd} NEWS}
 \encoding{UTF-8}
 
+\section{CHANGES IN \pkg{mbbefd} VERSION 0.8.12}{
+  \subsection{NOTE FIX}{
+    \itemize{
+      \item{remove missing links.}
+    }
+  }
+}
 \section{CHANGES IN \pkg{mbbefd} VERSION 0.8.11}{
   \subsection{NEW}{
     \itemize{
