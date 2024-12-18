@@ -2,7 +2,7 @@ Package: mbbefd
 Type: Package
 Title: Maxwell Boltzmann Bose Einstein Fermi Dirac Distribution and
         Destruction Rate Modelling
-Version: 0.8.12
+Version: 0.8.13
 Authors@R: c(
     person("Christophe", "Dutang", role = c("aut", "cre"), email = "dutangc@gmail.com", comment = c(ORCID = "0000-0001-6732-1501")),
     person("Giorgio", "Spedicato", role = "aut", email = "spedicato_giorgio@yahoo.it", comment = c(ORCID = "0000-0002-0315-8888")),
@@ -25,10 +25,10 @@ VignetteBuilder: knitr
 SystemRequirements: GNU make
 NeedsCompilation: yes
 RoxygenNote: 6.0.1
-Packaged: 2024-10-17 20:12:29 UTC; dutang
+Packaged: 2024-12-18 09:23:16 UTC; dutang
 Author: Christophe Dutang [aut, cre] (<https://orcid.org/0000-0001-6732-1501>),
   Giorgio Spedicato [aut] (<https://orcid.org/0000-0002-0315-8888>),
   Markus Gesmann [ctb]
 Maintainer: Christophe Dutang <dutangc@gmail.com>
 Repository: CRAN
-Date/Publication: 2024-10-17 20:30:02 UTC
+Date/Publication: 2024-12-18 13:40:02 UTC
